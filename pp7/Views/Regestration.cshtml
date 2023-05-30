@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Регистрация";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="vh-100">
+    <div class="container-fluid py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-lg-12 col-xl-11">
+
+                <div class="card-body p-md-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Регистрация</p>
+
+                            <form class="mx-1 mx-md-4" method="post" asp-action="PostSetUser" asp-controller="Registration" id="form">
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                    <div class="form-outline flex-fill mb-0">
+                                        <input type="text" name="Name" class="form-control" required/>
+                                        <label class="form-label" for="form3Example1c">Имя</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                    <div class="form-outline flex-fill mb-0">
+                                        <input type="text" name="Login" class="form-control" required/>
+                                        <label class="form-label" for="form3Example1c">Ваш логин</label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                    <div class="form-outline flex-fill mb-0">
+                                        <input type="password" name="Password" class="form-control" required id="pass" />
+                                        <label class="form-label" for="form3Example4c">Пароль</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                    <div class="form-outline flex-fill mb-0">
+                                        <input type="text" name="NumberTelephone" class="form-control" id="phone" required />
+                                        <label class="form-label" for="form3Example4c">Телефон</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                    <div class="form-outline flex-fill mb-0">
+                                        <select name="Role">
+                                            <option value="Admin">Админ</option>
+                                            <option value="Not an admin">Не админ</option>
+                                        </select>
+                                        </div></div>
+                                <div class="d-flex flex-row align-items-center mb-4" hidden>
+                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                    <div class="form-outline flex-fill mb-0">
+                                        <input type="checkbox" name="Sex" hidden checked/>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                    <input type="submit" class="btn btn-primary btn-lg" value="Регистрация"/>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                 class="img-fluid" alt="Sample image">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $("#form").on('submit',function(event){
+                event.preventDefault();
+                var value = document.getElementById('phone').value;
+                const exp = /^(\+7|8)[0-9]{10}$/;
+                if (!exp.test(value)){
+                    alert("Неверный номер телефона");
+                    return false;
+                }
+                this.submit();
+                return true;
+            });
+        }); 
+    </script>
+}

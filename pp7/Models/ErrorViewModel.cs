@@ -1,4 +1,4 @@
-namespace pp7.Models
+namespace WebApplication2rrr.Models
 {
     public class ErrorViewModel
     {

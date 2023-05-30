@@ -1,0 +1,43 @@
+﻿@model WebApplication2rrr.Models.Phone
+@{
+    ViewData["Title"] = "Список смартфонов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Buy</title>
+    </head>
+    <body>
+    <div class="col-md-4 mt-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-img-actions">
+                    <img src="@Model.Url" class="card-img img-fluid" width="96" height="350" alt="">
+                </div>
+            </div>
+            <div class="card-body bg-light text-center">
+                <div class="mb-2">
+                    <h6 class="font-weight-semibold mb-2">
+                        <a href="#" class="text-default mb-2" data-abc="true">@Model.Name</a>
+                    </h6>
+                    <a href="#" class="text-muted" data-abc="true">@Model.Company</a>
+                </div>
+                <h3 class="mb-0 font-weight-semibold">@Model.Price₽</h3>
+                <div>
+                    <i class="fa fa-star star"></i>
+                    <i class="fa fa-star star"></i>
+                    <i class="fa fa-star star"></i>
+                    <i class="fa fa-star star"></i>
+                </div>
+                <div class="text-muted mb-3">2500 просмотров</div>
+                <form method="post" asp-controller="Buy" asp-action="PostBuy">
+                    <input type="text" placeholder="адрес" name="adress" />
+                    <button type="submit" class="btn btn-primary"> Добавить в корзину</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

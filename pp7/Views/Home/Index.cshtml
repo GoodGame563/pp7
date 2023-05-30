@@ -1,8 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<WebApplication2rrr.Models.Phone>
+@{
+    ViewData["Title"] = "Список смартфонов";
+    Layout = null;
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Магазин смартфонов</title>
+</head>
+<body>
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Список товаров</p>
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="row">
+                @foreach (var phone in Model)
+                {
+                    <div class="col-md-4 mt-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-img-actions">
+                                    <img src="https://static.eldorado.ru/photos/mv/Big/400038702bb.jpg/resize/400x300/" class="card-img img-fluid" width="96" height="350" alt="">
+                                </div>
+                            </div>
+                            <div class="card-body bg-light text-center">
+                                <div class="mb-2">
+                                    <h6 class="font-weight-semibold mb-2">
+                                        <a href="#" class="text-default mb-2" data-abc="true">@phone.Name</a>
+                                    </h6>
+                                    <a href="#" class="text-muted" data-abc="true">@phone.Company</a>
+                                </div>
+                                <h3 class="mb-0 font-weight-semibold">@phone.Price₽</h3>
+                                <div>
+                                    <i class="fa fa-star star"></i>
+                                    <i class="fa fa-star star"></i>
+                                    <i class="fa fa-star star"></i>
+                                    <i class="fa fa-star star"></i>
+                                </div>
+                                <div class="text-muted mb-3">2500 просмотров</div>
+                                <button type="button" class="btn bg-cart" href="~/Buy/GetBuy/@phone.PhoneId"><i class="fa fa-cart-plus mr-2"></i> Добавить в корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+               </div>
+               </div>
+</body>
+</html>

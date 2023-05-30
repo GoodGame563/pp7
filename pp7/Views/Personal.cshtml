@@ -1,0 +1,40 @@
+﻿@model WebApplication2rrr.Models.User
+@{
+    ViewData["Title"] = "Личный кабинет";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model != null)
+{
+	<form method="post" asp-action="PostUdate" asp-controller="PersonalCabinet">
+    		<div class="ui-81">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-12 col-mob">
+						<!-- Main Item Starts -->
+						<div class="ui-item">
+						
+							<!-- User Details Starts -->
+							<div class="ui-user clearfix">
+								<!-- UserName And Designation -->
+								<h2><a href="ui-81.html#"></a> <span>Имя  </span><input name="name" value="@Model.Name" type="text" class="form-label" /></h2>
+							</div>
+							<div class="ui-details">
+								<hr>
+								<!-- Paragraph -->
+							<p>Роль @Model.Role</p>
+							<p> Телефон <input name="phone" value="@Model.NumberTelephone" type="text" /></p>
+							<p><input type="submit" value="Поменять" /></p>
+							</div>
+							<!-- Details Ends -->
+							
+							
+						</div>
+						<a asp-action="GetHistory" asp-controller="PersonalCabinet" class="btn btn-info">История</a>
+						</div></div></div></div>
+    </form>
+    
+}
+else{
+    <p>Пользователь не задан</p>
+}
+

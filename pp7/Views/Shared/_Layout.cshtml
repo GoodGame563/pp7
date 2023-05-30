@@ -1,14 +1,84 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - pp7</title>
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/pp7.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .mt-50 {
+            margin-top: 50px;
+        }
+
+        .mb-50 {
+            margin-bottom: 50px;
+        }
+
+
+
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .1875rem;
+        }
+
+        .card-img-actions {
+            position: relative;
+        }
+
+        .card-body {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .card-img {
+            width: 350px;
+        }
+
+        .star {
+            color: red;
+        }
+
+        .bg-cart {
+            background-color: orange;
+            color: #fff;
+        }
+
+            .bg-cart:hover {
+                color: #fff;
+            }
+
+        .bg-buy {
+            background-color: green;
+            color: #fff;
+            padding-right: 29px;
+        }
+
+            .bg-buy:hover {
+                color: #fff;
+            }
+
+        a {
+            text-decoration: none !important;
+        }
+    </style>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -17,23 +87,28 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 ms-3">
+                        <li class="nav-item ps-3">
+                            <a class="nav-link" asp-action="index" asp-controller="Home">Каталог</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item ps-3">
+                            <a class="nav-link" asp-action="index" asp-controller="Auth">Вход</a>
+                        </li>
+                        <li class="nav-item ps-3">
+                            <a class="nav-link" asp-controller="Registration" asp-action="Index">Регистрация</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-action="index" asp-controller="PersonalCabinet">Личный кабинет</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="m-4">
+        @RenderBody()
+        @RenderSection("Scripts", required: false)
     </div>
 
     <footer class="border-top footer text-muted">
@@ -44,6 +119,5 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

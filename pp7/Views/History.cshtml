@@ -1,0 +1,36 @@
+﻿@model List<Phone>
+@{
+    ViewData["Title"] = "История";
+}
+
+<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">История</p>
+@foreach(var a in Model)
+{
+    
+    <div class="col-md-12 mt-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-img-actions">
+                    <img src="@a.Url" class="card-img img-fluid" width="96" height="350" alt="">
+                </div>
+            </div>
+            <div class="card-body bg-light text-center">
+                <div class="mb-2">
+                    <h6 class="font-weight-semibold mb-2">
+                        <a href="#" class="text-default mb-2" data-abc="true">@a.Name</a>
+                    </h6>
+                    <a href="#" class="text-muted" data-abc="true">@a.Company</a>
+                </div>
+                <h3 class="mb-0 font-weight-semibold">@a.Price₽</h3>
+                <div>
+                    <i class="fa fa-star star"></i>
+                    <i class="fa fa-star star"></i>
+                    <i class="fa fa-star star"></i>
+                    <i class="fa fa-star star"></i>
+                </div>
+                <div class="text-muted mb-3">2500 просмотров</div>
+            </div>
+        </div>
+    </div>
+}
+
